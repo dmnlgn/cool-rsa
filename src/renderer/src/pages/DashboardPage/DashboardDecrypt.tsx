@@ -13,8 +13,6 @@ const DashboardDecrypt: FC<IDashboardEncrypt> = ({
   dValue,
   nValue,
 }) => {
-  console.log("dValue", dValue);
-
   const decryptC = Number(powerMod(cResult, dValue, nValue));
 
   return (
@@ -29,9 +27,9 @@ const DashboardDecrypt: FC<IDashboardEncrypt> = ({
           </MathJaxContext>
         </div>
       </div>
-      <div className="flex gap-2 items-baseline mt-2">
-        <label className="text-[14px]">Wartość M</label>
-        <div className="w-full flex-1">
+      <div className="flex flex-col items-baseline mt-2">
+        <label className="text-[14px]">Odszyfrowana wiadomość</label>
+        <div className="w-full flex-1 mt-1">
           <input
             className="w-full flex-1 border border-solid rounded-[5px] border-cGray100 px-[5px] py-[2px] text-[14px] focus-visible:outline-none"
             disabled={true}

@@ -18,8 +18,6 @@ const DashboardPage = () => {
 
   const [cResult, setCResult] = useState(0);
 
-  console.log("rsaData", rsaData);
-
   return (
     <>
       <Card>
@@ -28,27 +26,31 @@ const DashboardPage = () => {
           <DashboardForm setRsaData={(data: IRsaData) => setRsaData(data)} />
         </Card.Body>
       </Card>
-      <Card cardContainerClass="mt-4">
-        <Card.Header>Szyfrowanie</Card.Header>
-        <Card.Body>
-          <DashboardEncrypt
-            mValue={rsaData.mValue}
-            eValue={rsaData.eValue}
-            nValue={rsaData.nValue}
-            setCResult={(data: number) => setCResult(data)}
-          />
-        </Card.Body>
-      </Card>
-      <Card cardContainerClass="mt-4">
-        <Card.Header>Deszyfrowanie</Card.Header>
-        <Card.Body>
-          <DashboardDecrypt
-            cResult={cResult}
-            dValue={rsaData.dValue}
-            nValue={rsaData.nValue}
-          />
-        </Card.Body>
-      </Card>
+      {!!rsaData.mValue && !!rsaData.eValue && !!rsaData.nValue && (
+        <Card cardContainerClass="mt-4">
+          <Card.Header>Szyfrowanie</Card.Header>
+          <Card.Body>
+            <DashboardEncrypt
+              mValue={rsaData.mValue}
+              eValue={rsaData.eValue}
+              nValue={rsaData.nValue}
+              setCResult={(data: number) => setCResult(data)}
+            />
+          </Card.Body>
+        </Card>
+      )}
+      {!!cResult && !!rsaData.dValue && !!rsaData.nValue && (
+        <Card cardContainerClass="mt-4">
+          <Card.Header>Deszyfrowanie</Card.Header>
+          <Card.Body>
+            <DashboardDecrypt
+              cResult={cResult}
+              dValue={rsaData.dValue}
+              nValue={rsaData.nValue}
+            />
+          </Card.Body>
+        </Card>
+      )}
     </>
   );
 };

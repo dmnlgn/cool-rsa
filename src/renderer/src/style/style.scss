@@ -1,64 +1,5 @@
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Thin.ttf");
-  font-weight: 100;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-ExtraLight.ttf");
-  font-weight: 200;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Light.ttf");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Regular.ttf");
-  font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Medium.ttf");
-  font-weight: 500;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-SemiBold.ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Bold.ttf");
-  font-weight: 700;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "SairaExtra";
-  src: url("../assets/fonts/SairaExtraCondensed-Black.ttf");
-  font-weight: 800;
-  font-style: normal;
-}
-
 body {
   font-size: 18px;
-  // font-family: "SairaExtra", Courier, monospace;
-  // font-family: "Times New Roman", serif;
-  // font-family: "Courier", monospace;
   font-family: "Trebuchet MS", sans-serif;
   background-color: #ebebeb;
   padding: 0;
@@ -84,20 +25,6 @@ a:hover {
   padding-right: 18px;
   max-width: 992px;
   background-color: red;
-}
-
-.cool-btn {
-  background-color: #181818;
-  outline: none;
-  border: 1px solid #3b3b3b;
-  color: #afafaf;
-  border-radius: 8px;
-  min-height: 20px;
-  padding: 5px 8px;
-  font-size: 20px;
-  font-family: "SairaExtra", Courier, monospace;
-  cursor: pointer;
-  width: max-content;
 }
 
 ::-webkit-scrollbar {

@@ -13,13 +13,9 @@ import { GCD } from "@/utils/gcd";
 export const calculateDValue = (phi: number, e: number) => {
   let d_value = 0;
   let i = 1;
-  console.log("e", e);
-  console.log("phi", phi);
   while (true) {
-    //d = (k * Ø + 1)/e,
     d_value = (i * phi + 1) / e;
-    console.log("index", i);
-    console.log("d_value", d_value);
+
     if (Number.isInteger(d_value) || i > phi) {
       break;
     }
@@ -49,28 +45,8 @@ const DashboardForm: FC<IDashboardForm> = ({ setRsaData }) => {
     resolver: yupResolver<IRsaFormData>(schema),
   });
   const onSubmit = (data: IRsaFormData) => {
-    console.log("data.pValue", data.pValue);
-    console.log("data.pValue", data.qValue);
-    console.log("pValue", pValue);
-    console.log("qValue", qValue);
-
     const phi = (data.pValue - 1) * (data.qValue - 1);
-    // const gcd = extendedGcd(~~phi, ~~eValue);
-    // const dValue = ((gcd.x % phi) + phi) % phi;
-
-    // const phi = (~~data.pValue - 1) * (~~data.pValue - 1);
-    // const gcd = extendedGcdBigInt(~~phi, ~~eValue);
-
-    // console.log("gcd", gcd);
-
-    // const gcdX = Number(gcd.x);
-    // const dValue = ((gcdX % phi) + phi) % phi;
-
     const dValue = modInverseBigInt(eValue, phi);
-
-    // const gcd = extendedGcdBigInt(~~phi, ~~eValue);
-    // const gcdX = Number(gcd.x);
-    // const dValue = ((gcdX % phi) + phi) % phi;
 
     setRsaData({
       pValue: Number(data.pValue),
@@ -110,6 +86,15 @@ const DashboardForm: FC<IDashboardForm> = ({ setRsaData }) => {
   useEffect(() => {
     resetField("eValue");
     resetField("mValue");
+    setRsaData({
+      pValue: 0,
+      qValue: 0,
+      eValue: 0,
+      mValue: 0,
+      dValue: 0,
+      nValue: 0,
+      phiValue: 0,
+    });
   }, [pValue, qValue]);
 
   useEffect(() => {
@@ -120,7 +105,6 @@ const DashboardForm: FC<IDashboardForm> = ({ setRsaData }) => {
           const result = await calculateRelativePrimeNumber(phi);
           setEPotentialValues(result);
         } catch (error) {
-          console.error("Error calculating ePotentialValues:", error);
           setEPotentialValues([]);
         } finally {
           setIsLoadingPotentialValues(false);
@@ -224,8 +208,6 @@ const DashboardForm: FC<IDashboardForm> = ({ setRsaData }) => {
     return null;
   };
 
-  console.log("errors", errors);
-
   return (
     <div className="block mt-2">
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -295,7 +277,7 @@ const DashboardForm: FC<IDashboardForm> = ({ setRsaData }) => {
             )}
           </div>
         </div>
-        <button className="rsa-button mt-4 bg-cOrange100 text-white transition ease-in-out duration-300 hover:bg-cOrange200">
+        <button className="rsa-button mt-4 mb-1 bg-cOrange100 text-white transition ease-in-out duration-300 hover:bg-cOrange200">
           Szyfruj/odszyfruj
         </button>
       </form>

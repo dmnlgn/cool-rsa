@@ -21,8 +21,6 @@ const DashboardEncrypt: FC<IDashboardEncrypt> = ({
     setCResult(encryptC);
   }, [encryptC]);
 
-  console.log("encryptC", encryptC);
-
   return (
     <div>
       <div className="flex flex-col gap-2 items-baseline mt-2">
@@ -35,9 +33,9 @@ const DashboardEncrypt: FC<IDashboardEncrypt> = ({
           </MathJaxContext>
         </div>
       </div>
-      <div className="flex gap-2 items-baseline mt-2">
-        <label className="text-[14px]">Podaj wartość q</label>
-        <div className="w-full flex-1">
+      <div className="flex flex-col items-baseline mt-2">
+        <label className="text-[14px]">Zaszyfrowana wiadomość</label>
+        <div className="w-full flex-1 mt-1">
           <input
             className="w-full flex-1 border border-solid rounded-[5px] border-cGray100 px-[5px] py-[2px] text-[14px] focus-visible:outline-none"
             disabled={true}

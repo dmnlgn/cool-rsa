@@ -51,8 +51,6 @@ export const schema = yup
 
         const isRelativePrime = GCD(phi, eValueYup) === 1;
 
-        console.log("eValueYup", !eValueYup);
-
         if (!eValueYup) {
           return schema.test(
             "is-no-data",

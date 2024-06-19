@@ -11,9 +11,7 @@ export default defineConfig({
       react(),
       eslintVite({
         cache: false,
-        fix: (props) => {
-          console.log("mess", props);
-
+        fix: () => {
           return true;
         },
       }),
