@@ -1,5 +1,5 @@
 import { MathJax, MathJaxContext } from "better-react-mathjax";
-import React, { useEffect, type FC } from "react";
+import React, { type FC } from "react";
 import { powerMod } from "@/utils/powerMod";
 
 interface IDashboardEncrypt {
